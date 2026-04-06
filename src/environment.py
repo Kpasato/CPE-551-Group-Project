@@ -11,7 +11,7 @@ def create_map():
             [0, 1, 0, 0, 0],
             [0, 0, 0, 1, 0]]
     # Write the data to a csv file in the current working directory
-    with open('./map_config.csv', "w") as fo:
+    with open('./data/map_config.csv', "w", newline="") as fo:
         writer = csv.writer(fo)
         writer.writerows(data)
 
