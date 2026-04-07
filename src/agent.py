@@ -26,7 +26,9 @@ class Robot:
         # P1, R2 (1/2): Meaningful function
         # P2, R3: Math library (built-in library)
 
-        # Need to calculate distance here and return it rounded to 2 or 3 decimal places
+                dx = self.target_pos[0] - self.current_pos[0]
+        dy = self.target_pos[1] - self.current_pos[1]
+        return round(math.sqrt(dx**2 + dy**2), 2)
 
     # P1, R8 (2/2): Implement __len__ as the additional operator overload
     def __len__(self):
