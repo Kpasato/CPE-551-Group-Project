@@ -1,6 +1,7 @@
 # environment.py
 import numpy as np # Import numpy library
 import csv # Import built-in csv module
+import matplotlib.pyplot as plt  # P1, R3 (2/2): Second advanced Python library for visualization
 
 def create_map():
     """
@@ -79,3 +80,19 @@ class Map:
         """
         return f"Map loaded: {self.dimensions[0]}x{self.dimensions[1]} grid with {len(self.obstacles)} obstacles."
     
+
+
+    def visualize_grid(self, path=None):
+        """Visualize the map using matplotlib. P1, R3 (2/2): Second advanced Python library."""
+        fig, ax = plt.subplots(figsize=(8, 6))
+        ax.imshow(self.grid_data, cmap='binary')
+        ax.set_xticks(np.arange(self.dimensions[1]))
+        ax.set_yticks(np.arange(self.dimensions[0]))
+        ax.grid(which='major', color='gray', linewidth=1)
+        ax.set_title("Environment Map")
+        if path:
+            py, px = zip(*path)
+            ax.plot(px, py, 'go-', linewidth=2, markersize=10, label='Path')
+            ax.legend()
+        plt.tight_layout()
+        plt.show()
