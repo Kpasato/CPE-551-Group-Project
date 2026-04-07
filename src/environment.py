@@ -15,6 +15,7 @@ def create_map():
         writer = csv.writer(fo)
         writer.writerows(data)
 
+# P1, R1 (1/2): Meaningful class
 class Map:
     """
     A representation of the environment. Contains attributes such as grid data, dimensions, and obstacle data.
