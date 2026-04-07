@@ -42,3 +42,18 @@ class Robot:
         Overload print() operator to provide a status summary for the robot.
         """
         return f"Robot '{self.name}' located at {self.current_pos}, Target: {self.target_pos}, Battery: {self.battery}%"
+
+    def is_path_clear(self):
+                if not self.path:
+                                return True
+                            for pos in self.path:
+                                            if pos in self.map.obstacles:
+                                                                return False
+                                                        return True
+
+    def update_battery(self, steps):
+                for _ in range(steps):
+                                if self.battery > 0:
+                                                    self.battery -= 1
+                                                else:
+                break
