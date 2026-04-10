@@ -26,7 +26,7 @@ class Robot:
         # P1, R2 (1/2): Meaningful function
         # P2, R3: Math library (built-in library)
 
-                dx = self.target_pos[0] - self.current_pos[0]
+        dx = self.target_pos[0] - self.current_pos[0]
         dy = self.target_pos[1] - self.current_pos[1]
         return round(math.sqrt(dx**2 + dy**2), 2)
 
@@ -44,16 +44,18 @@ class Robot:
         return f"Robot '{self.name}' located at {self.current_pos}, Target: {self.target_pos}, Battery: {self.battery}%"
 
     def is_path_clear(self):
-                if not self.path:
-                                return True
-                            for pos in self.path:
-                                            if pos in self.map.obstacles:
-                                                                return False
-                                                        return True
+        if not self.path:
+            return True
+
+        for pos in self.path:
+            if pos in self.map.obstacles:
+                return False
+
+        return True
 
     def update_battery(self, steps):
-                for _ in range(steps):
-                                if self.battery > 0:
-                                                    self.battery -= 1
-                                                else:
+        for _ in range(steps):
+            if self.battery > 0:
+                self.battery -= 1
+            else:
                 break
