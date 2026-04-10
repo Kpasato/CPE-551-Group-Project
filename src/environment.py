@@ -65,11 +65,13 @@ class Map:
             print(f"The file at {self.file_path} was not found.")
             # Initialize the attributes with empty to avoid program crash
             self.grid_data = np.array([[]])
+            self.dimensions = (0, 0)
             self.obstacles = set()
 
         except ValueError:
             print(f"Error: Invalid CSV data format. Make sure all cells are numbers. Error type: {ValueError}")
             self.grid_data = np.array([[]])
+            self.dimensions = (0, 0)
             self.obstacles = set()
 
 
