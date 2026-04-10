@@ -59,7 +59,7 @@ class Map:
             # Use numpy's .nditer to iterate the grid data array and access indicies w/ multi_index
             it = np.nditer(self.grid_data, flags=['multi_index'])
             # P1, R7 (2/4): Use list comprehension to get the obstacle coordinates of indicies with a value of 1 (an obstacle)
-            self.obstacles = {it.multi_index for x in it if x == 1}
+            self.obstacles = {it.multi_index for x in it if int(x) == 1}
 
         except FileNotFoundError:
             print(f"The file at {self.file_path} was not found.")
