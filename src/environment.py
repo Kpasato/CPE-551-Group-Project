@@ -82,6 +82,12 @@ class Map:
         """
         return f"Map loaded: {self.dimensions[0]}x{self.dimensions[1]} grid with {len(self.obstacles)} obstacles."
     
+    # P1, R8 (2/2): Implement __repr__
+    def __repr__(self):
+        """
+        Return a formal string representation of the map.
+        """
+        return f"Map(dimensions={self.dimensions}, obstacles={len(self.obstacles)})"
 
 
     def visualize_grid(self, path=None):
