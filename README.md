@@ -154,7 +154,7 @@ The path example intentionally passes through an obstacle, so `is_path_clear()` 
 
 ## Requirements Fulfilled
 
-This project currently fulfills or partially fulfills the following course requirements:
+This project fulfills the following course requirements:
 
 ### Part 1
 
@@ -177,7 +177,7 @@ This project currently fulfills or partially fulfills the following course requi
 - Built-in modules are used, including `math` and `csv`
 - Set usage is included for obstacle coordinates
 - Special method `__len__` is implemented for the `Robot` class
-Additional pathfinding logic can be added later to strengthen the final project.
+
 
 ## Main Contributions
 
