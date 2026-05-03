@@ -57,7 +57,14 @@ class Robot:
                 return False
 
         return True
-
+    
+    def path_steps(self):
+        """
+        gets us each coordinate in the robot's current path one step at a time.
+        """
+        for pos in self.path:
+            yield pos
+            
     def update_battery(self, steps):
         """
         Reduce the robot's battery by one percent for each movement step.

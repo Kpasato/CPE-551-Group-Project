@@ -21,7 +21,8 @@ CPE-551-Group-Project/
 ├── src/
 │   ├── __init__.py             # Makes src importable as a package
 │   ├── agent.py                # Robot class with navigation-related logic
-│   └── environment.py          # Map class with CSV loading, obstacle detection, and visualization
+│   ├── environment.py          # Map class with CSV loading, obstacle detection, and visualization
+│   └── pathfinding.py          # Uses BFS pathfinding logic for collisionless paths
 ├── tests/
 │   ├── conftest.py             # Pytest import path setup
 │   ├── test_agent.py           # Pytest tests for Robot class behavior
@@ -71,6 +72,7 @@ The modules can also be imported into another Python file or notebook:
 ```python
 from src.environment import Map, create_map
 from src.agent import Robot
+from src.pathfinding import find_path
 
 # Create the map from CSV
 create_map()
@@ -81,6 +83,10 @@ print(env)
 robot = Robot("R1", (0, 0), (3, 4), env)
 print(robot)
 print(f"Distance to target: {robot.calculate_distance()}")
+
+robot.path = find_path(env, robot.current_pos, robot.target_pos)
+print(f"Generated path: {robot.path}")
+print(f"Is generated path clear? {robot.is_path_clear()}")
 ```
 
 ### Option 3: Run Tests
@@ -94,7 +100,7 @@ pytest tests/
 Expected result:
 
 ```text
-4 passed
+7 passed
 ```
 
 ## Modules
@@ -125,12 +131,24 @@ Main features:
 - Updates battery level based on number of movement steps
 - Displays robot status using `__str__`
 - Uses `__len__` to return the number of steps in the robot’s path
+
+### Pathfinding Module (`src/pathfinding.py`)
+
+The pathfinding.py module contains the pathfinding logic used to generate a collision-free route through the map.
+
+Main features:
+- Uses breadth-first search to find a path from start to target
+- Avoids obstacle coordinates stored in the `Map` object
+- Uses set operations to identify available grid positions
+- Returns a path as a list of coordinate tuples
+
 ### Tests (`tests/`)
 The `tests` folder contains Pytest files used to check that the main parts of the project work correctly.
 
 Current tests:
 - `test_environment.py` checks missing file handling and invalid CSV data handling
-- `test_agent.py` checks robot distance calculation and blocked path detection
+- `test_agent.py` checks robot distance calculation, blocked path detection, and the path generator
+- `test_pathfinding.py` checks that BFS pathfinding returns a valid path and avoids obstacles
 - `conftest.py` helps Pytest import files from the `src` folder correctly
 ## Sample Input/Output
 
@@ -175,9 +193,10 @@ This project fulfills the following course requirements:
 ### Part 2
 
 - `enumerate()` is used when checking the robot path steps
-- List/set comprehension is used for obstacle detection
-- Built-in modules are used, including `math` and `csv`
-- Set usage is included for obstacle coordinates
+- List/set comprehension is used for obstacle detection and valid neighbor generation
+- Built-in modules are used, including `math`, `csv`, and `collections`
+- A generator function, `path_steps()`, yields robot path coordinates one at a time
+- Set operations are used when finding available grid positions for pathfinding
 
 
 ## Main Contributions
