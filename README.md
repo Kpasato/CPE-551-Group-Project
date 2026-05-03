@@ -31,6 +31,7 @@ CPE-551-Group-Project/
 ├── .gitignore                  # Files/folders excluded from Git tracking
 └── README.md                   # Project documentation
 ```
+
 ## Dependencies
 
 Install required packages:
@@ -173,14 +174,14 @@ This project fulfills the following course requirements:
 
 ### Part 2
 
+- `enumerate()` is used when checking the robot path steps
 - List/set comprehension is used for obstacle detection
 - Built-in modules are used, including `math` and `csv`
 - Set usage is included for obstacle coordinates
-- Special method `__len__` is implemented for the `Robot` class
 
 
 ## Main Contributions
 
 - **Kevin Pasato**: Repository setup, data folder structure, notebook updates, project cleanup, README updates, and pytest setup support
-- **Danny Jutras**: Initial source code for `environment.py` and `agent.py`, map loading logic, robot class logic, and environment tests, readme creation
+- **Danny Jutras**: Initial source code for `environment.py` and `agent.py`, map loading logic, robot class logic, and environment tests, and README creation
 - **Mithil Boreddy**: Source code and documentation contributions
