@@ -12,7 +12,7 @@ class Robot:
         """
         Initialize the robot with a name, start and end coordinates, and a map of its environment.
         """
-        self.name = str(name) # Immutable string
+        self.name = str(name) #immutable string
         self.current_pos = tuple(start_pos) # Immutable tuple
         self.target_pos = tuple(target_pos) # Immutable tuple
         self.map = environment # Establish composition relationship
@@ -44,18 +44,30 @@ class Robot:
         return f"Robot '{self.name}' located at {self.current_pos}, Target: {self.target_pos}, Battery: {self.battery}%"
 
     def is_path_clear(self):
+        """
+        Check whether the robot's current path avoids all obstacle coordinates.
+        Uses enumerate to track each step in the path.
+        """
         if not self.path:
             return True
 
-        for pos in self.path:
+        for step_number, pos in enumerate(self.path):
+            # step_number tracks the robot's current step number in the path
             if pos in self.map.obstacles:
                 return False
 
         return True
 
     def update_battery(self, steps):
+        """
+        Reduce the robot's battery by one percent for each movement step.
+        Battery will not go below zero.
+        """
         for _ in range(steps):
             if self.battery > 0:
                 self.battery -= 1
             else:
                 break
+
+
+        
