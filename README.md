@@ -203,4 +203,4 @@ This project fulfills the following course requirements:
 
 - **Kevin Pasato**: Repository setup, data folder structure, notebook updates, project cleanup, README updates, and pytest setup support
 - **Danny Jutras**: Initial source code for `environment.py` and `agent.py`, map loading logic, robot class logic, and environment tests, and README creation
-- **Mithil Boreddy**: Source code and documentation contributions
+- **Mithil Boreddy**: Contributed to the `pathfinding.py` module and related testing, helped refine BFS-based route generation for collision-free robot movement, supported integration between the `Robot` and `Map` components.expanded documentation content to better explain functionality.
