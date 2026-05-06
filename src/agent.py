@@ -53,7 +53,7 @@ class Robot:
 
         for step_number, pos in enumerate(self.path):
             # step_number tracks the robot's current step number in the path
-            if pos in self.map.obstacles:
+            if pos in self.map.obstacles:# pos is checked against the obstacle set from the map object
                 return False
 
         return True
@@ -63,7 +63,7 @@ class Robot:
         gets us each coordinate in the robot's current path one step at a time.
         """
         for pos in self.path:
-            yield pos
+            yield pos# yielding one position at a time allows the path to be processed step by step
             
     def update_battery(self, steps):
         """
