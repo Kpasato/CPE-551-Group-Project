@@ -1,4 +1,4 @@
-# CPE-551-Group-Project
+# CPE-551-Group-Project: Grid-based Autonomous Navigation & Obstacle Avoidance Simulator
 
 ## Project Overview
 
@@ -145,7 +145,7 @@ Main features:
 ### Tests (`tests/`)
 The `tests` folder contains Pytest files used to check that the main parts of the project work correctly.
 
-Current tests:
+Tests:
 - `test_environment.py` checks missing file handling and invalid CSV data handling
 - `test_agent.py` checks robot distance calculation, blocked path detection, and the path generator
 - `test_pathfinding.py` checks that BFS pathfinding returns a valid path and avoids obstacles
