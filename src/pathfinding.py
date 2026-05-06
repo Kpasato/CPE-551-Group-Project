@@ -32,7 +32,7 @@ def find_path(environment, start_pos, target_pos):
         return []
     queue = deque()#queue stores each position along with the path taken to reach it
     queue.append((start_pos, [start_pos]))
-    visited = set()
+    visited = set()# track the visited coordinates so the search does not repeat the same locations
     visited.add(start_pos)
     while queue:
         current_pos, path = queue.popleft()#once the target is reached, it returns the full path
